@@ -1,0 +1,566 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+    <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+        <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+            <button class="btn btn-success">
+                <i class="ace-icon fa fa-signal"></i>
+            </button>
+
+            <button class="btn btn-info">
+                <i class="ace-icon fa fa-pencil"></i>
+            </button>
+
+            <button class="btn btn-warning">
+                <i class="ace-icon fa fa-users"></i>
+            </button>
+
+            <button class="btn btn-danger">
+                <i class="ace-icon fa fa-cogs"></i>
+            </button>
+        </div>
+
+        <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+            <span class="btn btn-success"></span>
+
+            <span class="btn btn-info"></span>
+
+            <span class="btn btn-warning"></span>
+
+            <span class="btn btn-danger"></span>
+        </div>
+    </div><!-- /.sidebar-shortcuts -->
+
+    <ul class="nav nav-list" id="sidebar-menu">
+        <!--<li data-level="1">-->
+
+            <!--<a-->
+                    <!--href="javascript:void(0);" class="dropdown-toggle"-->
+                    <!--haschild="true"-->
+            <!--&gt;-->
+                <!--<i class="menu-icon fa fa-user"></i>-->
+                <!--<span class="menu-text"-->
+                      <!--style="vertical-align: middle;"-->
+                <!--&gt; 个人中心 </span>-->
+                <!--<b class="arrow fa fa-angle-down"></b>-->
+            <!--</a>-->
+            <!--<b class="arrow"></b>-->
+
+            <!--<ul class="submenu nav-hide" style="display:none;">-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="userCenter/userCenter.html"-->
+                            <!--id="menu_manageruserCenter"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon fa fa-file-o"></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; 我的资料 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</li>-->
+        <!--<li data-level="1">-->
+
+            <!--<a-->
+                    <!--href="javascript:void(0);" class="dropdown-toggle"-->
+                    <!--haschild="true"-->
+            <!--&gt;-->
+                <!--<i class="menu-icon fa fa-lastfm"></i>-->
+                <!--<span class="menu-text"-->
+                      <!--style="vertical-align: middle;"-->
+                <!--&gt; 单位管理 </span>-->
+                <!--<b class="arrow fa fa-angle-down"></b>-->
+            <!--</a>-->
+            <!--<b class="arrow"></b>-->
+
+            <!--<ul class="submenu nav-hide" style="display:none;">-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="office/office-detail.html"-->
+                            <!--id="menu_managercompanydetail"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon "></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; 单位信息 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="user/user.html"-->
+                            <!--id="menu_managercompanyaccounts"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon "></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; 单位账号 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="work/company/work.html"-->
+                            <!--id="menu_managercompanywork"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon "></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; 电子台账 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</li>-->
+        <!--<li data-level="1">-->
+
+            <!--<a-->
+                    <!--href="javascript:void(0);" class="dropdown-toggle"-->
+                    <!--haschild="true"-->
+            <!--&gt;-->
+                <!--<i class="menu-icon fa fa-puzzle-piece"></i>-->
+                <!--<span class="menu-text"-->
+                      <!--style="vertical-align: middle;"-->
+                <!--&gt; 业务管理 </span>-->
+                <!--<b class="arrow fa fa-angle-down"></b>-->
+            <!--</a>-->
+            <!--<b class="arrow"></b>-->
+
+            <!--<ul class="submenu nav-hide" style="display:none;">-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="manager/work/admin/index"-->
+                            <!--id="menu_manageradminwork"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon "></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; 电子台账 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="manager/qualification/index"-->
+                            <!--id="menu_managerqualificationindex"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon "></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; 资质审核 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="index.html"-->
+                            <!--id="menu_managerdemandindex"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon "></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; 服务需求 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="manager/examine/index"-->
+                            <!--id="menu_managerexamineindex"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon "></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; 考核管理 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="manager/app/index"-->
+                            <!--id="menu_managerappindex"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon "></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; APP管理 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="manager/statute/index"-->
+                            <!--id="menu_managerstatuteindex"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon fa fa-bolt"></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; 法律法规 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</li>-->
+        <!--<li data-level="1">-->
+
+            <!--<a-->
+                    <!--href="javascript:void(0);" class="dropdown-toggle"-->
+                    <!--haschild="true"-->
+            <!--&gt;-->
+                <!--<i class="menu-icon fa fa-group"></i>-->
+                <!--<span class="menu-text"-->
+                      <!--style="vertical-align: middle;"-->
+                <!--&gt; 机构用户 </span>-->
+                <!--<b class="arrow fa fa-angle-down"></b>-->
+            <!--</a>-->
+            <!--<b class="arrow"></b>-->
+
+            <!--<ul class="submenu nav-hide" style="display:none;">-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="manager/area/index"-->
+                            <!--id="menu_managerarea"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon fa fa-globe"></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; 区域管理 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="manager/office/index"-->
+                            <!--id="menu_manageroffice"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon fa fa-sitemap"></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; 机构管理 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="manager/sysuser/index"-->
+                            <!--id="menu_managersysuser"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon fa fa-user"></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; 用户管理 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="manager/role/index"-->
+                            <!--id="menu_managerrole"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon fa fa-graduation-cap"></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; 角色管理 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</li>-->
+        <!--<li data-level="1">-->
+
+            <!--<a-->
+                    <!--href="javascript:void(0);" class="dropdown-toggle"-->
+                    <!--haschild="true"-->
+            <!--&gt;-->
+                <!--<i class="menu-icon fa fa-cogs"></i>-->
+                <!--<span class="menu-text"-->
+                      <!--style="vertical-align: middle;"-->
+                <!--&gt; 系统管理 </span>-->
+                <!--<b class="arrow fa fa-angle-down"></b>-->
+            <!--</a>-->
+            <!--<b class="arrow"></b>-->
+
+            <!--<ul class="submenu nav-hide" style="display:none;">-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="menu/menu.html"-->
+                            <!--id="menu_managermenu"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon fa fa-list"></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; 菜单配置 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="dict/dict.html"-->
+                            <!--id="menu_managerdict"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon fa fa-calculator"></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; 字典管理 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="log/log.html"-->
+                            <!--id="menu_managersyslog"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon fa fa-copy"></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; 日志查询 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</li>-->
+        <!--<li data-level="1">-->
+
+            <!--<a-->
+                    <!--href="javascript:void(0);" class="dropdown-toggle"-->
+                    <!--haschild="true"-->
+            <!--&gt;-->
+                <!--<i class="menu-icon fa fa-binoculars"></i>-->
+                <!--<span class="menu-text"-->
+                      <!--style="vertical-align: middle;"-->
+                <!--&gt; 系统监控 </span>-->
+                <!--<b class="arrow fa fa-angle-down"></b>-->
+            <!--</a>-->
+            <!--<b class="arrow"></b>-->
+
+            <!--<ul class="submenu nav-hide" style="display:none;">-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="ehcache/ehcache.html"-->
+                            <!--id="menu_managermonitorehcache"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon fa fa-crosshairs"></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; Ehcache监控 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+                <!--<li data-level="2">-->
+
+                    <!--<a-->
+                            <!--href="jvm/jvm.html"-->
+                            <!--id="menu_managermonitorjvm"-->
+                            <!--haschild="false"-->
+                    <!--&gt;-->
+                        <!--<i class="menu-icon fa fa-flash"></i>-->
+                        <!--<span class="menu-text"-->
+                        <!--&gt; jvm监控 </span>-->
+                    <!--</a>-->
+                    <!--<b class="arrow"></b>-->
+
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</li>-->
+    </ul><!-- /.nav-list -->
+    <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+        <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+    </div>
+
+<script>
+    /**
+     * 访问资源授权：
+     * 1.从状态对象获取用户的可访问资源列表，如果不存在则从后台获取，并将资源列表放入状态对象
+     * 2.如果存在则遍历资源列表
+     *a.将简单数组格式传给ztree，创建一个ztree对象，通过ztree自动组装成多维数组
+     *b.递归遍历多维数组
+     *
+     *
+     * @type {Vue}
+     */
+    var app = new Vue({
+        el: '#sidebar-shortcuts',
+        data: function() {
+            return {
+                resources:[]
+            }
+        },
+        methods: {
+            getResources:async function () {//根据用户id获取其资源列表
+                let resources = sessionStorage.getItem("resources");
+                if(resources == undefined ){
+                    let userInfo = sessionStorage.getItem("userInfo");
+                    axios({
+                        url:'manager/menu/selectByUid',
+                        params:{uid:JSON.parse(userInfo).id}
+                    }).then(response=>{
+                        // debugger;
+                        sessionStorage.setItem("resources",JSON.stringify(response.data));
+                        this.resources = response.data;//在第一次获取资源授权的时候进行传值到vue
+                        console.log(resources);
+                        this.showall();
+                    }).catch(function (error) {
+                        layer.msg(error.message)
+                    })
+                }else{
+                    resources = JSON.parse(resources);//将json字符串转换成js数组对象
+                    this.resources = resources;//在已经存在状态对象中的时候进行传值到vue
+                    this.showall();
+                }
+                console.log(resources);
+
+            },
+            showall:function () {
+                let setting = {
+                    data: {
+                        simpleData: {
+                            enable: true,
+                            pIdKey: 'parentId'//根据node节点中的parentId属性来作为pId属性值
+                        }
+                    }
+                }
+
+                let treeObj = $.fn.zTree.init($("#sidebar-menu"),setting,this.resources);
+
+                let nodes = treeObj.getNodes();//转成多维数组
+                // debugger;//通过代码设置断点
+                treeObj.destroy("#sidebar-menu");
+                // treeObj.hideNodes(nodes)//需要额外引入exithide.js包
+                console.log(nodes);
+                //递归遍历数组
+                let ul = $("#sidebar-menu");//获取菜单的根ul节点
+                this.show(nodes,ul);//递归遍历
+            },
+            show:function (nodes,parent) {
+                for (let i = 0; i < nodes.length; i++) {
+                    //1.当前nodes如果有children属性，并且该属性有数据，则需要递归遍历children
+                    if(nodes[i].children!=undefined&&nodes[i].children.length>0){
+                        let flag=true;
+                        for(let j=0;j<nodes[i].children.length;j++){
+                            if(nodes[i].children[j].type==1){
+                                flag=false;
+                            }
+                        }
+                        if (flag) {
+                            let li = $(`<li data-level="1"></li>`);
+                            let str = `<a
+                                    href="javascript:void(0);" class="dropdown-toggle"
+                                    haschild="true"
+                                    <i class="menu-icon ${nodes[i].icon}"></i>
+                                        <span class="menu-text"
+                                              style="vertical-align: middle;"
+                                        > ${nodes[i].name} </span>`;
+                            //解决区域管理出现<b>标签   将children列表遍历，如果所有的子级权限都是按钮级别权限，则不拼接<b>
+                            li.append(str + `<b class="arrow fa fa-angle-down"></b>
+                                    </a>
+                                    <b class="arrow"></b>`);
+                            let ul = $(`<ul class="submenu nav-hide" style="display:none;"></ul>`);//生成子级列表ul
+                            //解决下拉后的样式处理
+                            // debugger;
+                            li.on("click", function () {
+                                console.log($(this).find(".fa-angle-down"));
+                                let b = $(this).find(".fa-angle-down");
+                                // debugger;
+                                if (b.length > 0) {
+                                    b.removeClass("fa-angle-down");
+                                    b.addClass("fa-angle-up");
+                                } else {
+                                    b = $(this).find(".fa-angle-up");
+                                    b.removeClass("fa-angle-up");
+                                    b.addClass("fa-angle-down");
+                                }
+                            })
+
+                            li.append(ul);//将子列表挂载到当前的li中
+                            parent.append(li);
+                            this.show(nodes[i].children, ul);//继续递归遍历
+                        }else {
+                            if(nodes[i].type==0) {//只显示菜单级别的节点
+                                let li = `<li data-level="2">
+                                    <a
+                                            href="${nodes[i].url}"
+                                            haschild="false"
+                                    >
+                                        <i class="menu-icon ${nodes[i].icon}"></i>
+                                        <span class="menu-text"
+                                        > ${nodes[i].name} </span>
+                                    </a>
+                                    <b class="arrow"></b>
+                                </li>`
+                                parent.append(li);
+                            }
+                        }
+                    }else{//2.如果没有，则直接将nodes遍历出来放到li中，挂到parent上
+                        if(nodes[i].type==0) {//只显示菜单级别的节点
+                            let li = `<li data-level="2">
+                                    <a
+                                            href="${nodes[i].url}"
+                                            haschild="false"
+                                    >
+                                        <i class="menu-icon ${nodes[i].icon}"></i>
+                                        <span class="menu-text"
+                                        > ${nodes[i].name} </span>
+                                    </a>
+                                    <b class="arrow"></b>
+                                </li>`
+                            parent.append(li);
+                        }
+                    }
+                }
+
+            }
+        },
+        created: function () {
+
+        },
+        mounted:function(){
+            this.getResources();
+        }
+
+    });
+
+</script>
+<!--</body>-->
+<!--</html>-->

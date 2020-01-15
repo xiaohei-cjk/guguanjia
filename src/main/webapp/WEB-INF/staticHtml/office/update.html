@@ -1,0 +1,330 @@
+<!-- 头部 -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <base href="/guguanjia/">
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>固管家服务平台</title>
+    <meta name="description" content="index"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="static/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="static/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="static/chosen/chosen.min.css"/>
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="static/ace/css/ace.min.css" id="main-ace-style"/>
+    <link rel="stylesheet" href="static/ace/css/ace-skins.min.css"/>
+    <link rel="stylesheet" href="static/ace/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="static/ztree/metro.css"/>
+    <link rel="stylesheet" href="static/validate/css/validform.css"/>
+    <link rel="stylesheet" href="static/css/custom.css"/>
+
+    <!--[if !IE]> -->
+    <script src="static/jquery/jquery.js"></script>
+    <!-- <![endif]-->
+    <!-- ace settings handler -->
+    <script src="static/ace/js/ace-extra.min.js"></script>
+
+</head>
+
+<body class="no-skin" id="body-content">
+
+<!-- 主体 -->
+<div class="main-container" id="main-container">
+
+    <div class="main-content">
+
+
+        <div class="page-content">
+
+            <div class="page-header">
+                <h1> 固管家服务平台 编辑 </h1>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div id="fill-main-content" style="height:100%">
+
+                        <div class="xuboxPageHtml" id="xboxTest" style="overflow-y: auto; height: 457px;">
+
+                            <div class="layer">
+                                <form enctype="multipart/form-data" name="FormPost" id="office-save-form" class="FormGrid" method="post" action="/guguanjia/manager/office/save">
+
+                                    <input type="hidden" value="56" name="id">
+                                    <input type="hidden" value="" name="parentIds">
+                                    <input type="hidden" value="0," name="oldParentIds">
+                                    <table class="EditTable" width="100%">
+                                        <tbody>
+                                        <tr style="display: none;">
+                                            <td class="ui-state-error" id="FormError"></td>
+                                        </tr>
+                                        <tr class="FormData">
+                                            <td class="CaptionTD">单位LOGO</td>
+                                            <td class="DataTD width-100">
+                                                <div class="sbd">
+                                                    <input name="logoFile" type="file" id="logo_input" style="display:none;">
+                                                    <a id="office-logo">
+                                                        <img id="logo" width="60" height="60" :src="'/uploads/logos/'+office.logo">
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="FormData">
+                                            <td class="CaptionTD"><span class="red">*</span>机构名称</td>
+                                            <td class="DataTD width-100">
+                                                <input type="text" name="name" datatype="*" nullmsg="请输入机构名称！" v-model="office.name">
+                                            </td>
+                                        </tr>
+                                        <tr class="FormData">
+                                            <td class="CaptionTD"><span class="red">*</span>机构类型</td>
+                                            <td class="DataTD width-100">
+                                                <select class="chosen-select " name="type" id="chosen-select" style="display: none;" v-model="office.type">
+                                                    <option value="1">
+                                                        公司
+                                                    </option>
+                                                    <option value="2" >
+                                                        监管平台
+                                                    </option>
+
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr class="FormData" style="display: none;">
+                                            <td class="CaptionTD">上级机构</td>
+                                            <td class="DataTD width-100">
+
+                                                <div class="clearfix width-100  input-group" style="">
+                                                    <input class="form-control search-query" type="text" readonly="" id="poffice" name="" value="">
+                                                    <span class="input-group-btn">
+		<span class="btn btn-purple btn-sm" type="button" style="height: 34px;" data-mode="page" data-url="/guguanjia/manager/tag/treeselect" data-data="{url:'/guguanjia/manager/office/tree',id:'poffice_id',nameId:'poffice',pIdKey:'parentId',selectIds:'',curId:'56',checked:'false',rootNodeName:'',isLayer:'true'}" data-title="请选择" data-width="350px" data-height="400px">
+			<i class="ace-icon fa fa-search bigger-110"></i>
+            查找
+		</span>
+	</span>
+                                                    <input type="hidden" name="parentId" id="poffice_id" value="0">
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr class="FormData">
+                                            <td class="CaptionTD"><span class="red">*</span>归属区域</td>
+                                            <td class="DataTD width-100">
+
+                                                <div class="clearfix width-100  input-group" style="">
+                                                    <input class="form-control search-query" type="text" readonly="" id="area" name="" v-model="office.areaName" datatype="*" nullmsg="请选择归属区域">
+                                                    <span class="input-group-btn">
+		<span class="btn btn-purple btn-sm" type="button" id="icon-icon-btn" style="height: 34px;" >
+			<i class="ace-icon fa fa-search bigger-110"></i>
+
+		</span>
+	</span>
+                                                    <input type="hidden" name="areaId" id="area_id" value="1">
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <!--<tr class="FormData" >
+                                            <td class="CaptionTD">区域图标</td>
+                                            <td class="DataTD">
+                                                <div class="width-100 clearfix ">
+                                                    <input type="hidden" value="" name="icon" id="icon-input">
+                                                    <i class="ace-icon  bigger-200 pink" style="vertical-align: middle;padding-right: 10px;"></i>
+                                                    <span class="btn btn-sm btn-purple" id="icon-icon-btn">
+		<i class="ace-icon fa fa-search bigger-110"></i>查找
+	</span>
+                                                </div>
+
+                                            </td>
+                                        </tr>-->
+                                        <tr class="FormData">
+                                            <td class="CaptionTD">废物类型</td>
+                                            <td class="DataTD width-100">
+                                                <select name="wasteType" id="wasteType" >
+                                                    <option value="0" selected>请选择废物类型</option>
+                                                    <option v-for="wasteType in wasteTypes" :value="wasteType.id">
+                                                        {{wasteType.code}}-{{wasteType.name}}
+                                                    </option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr class="FormData">
+                                            <td class="CaptionTD">危废</td>
+                                            <td class="DataTD width-100">
+                                                <select data-placeholder="请选择危废" id="waste" >
+                                                    <option value="0">请选择废物类型</option>
+                                                    <option v-for="waste in wastes" :value="waste.id">
+                                                        {{waste.code}}
+                                                    </option>
+                                                </select>
+
+                                            </td>
+                                        </tr>
+                                        <tr class="FormData">
+                                            <td class="CaptionTD"></td>
+                                            <td class="DataTD width-100" id="selectedWaste"  v-if="office.wastes[0]!=null">
+                                                <p :id="'waste-'+waste.id" v-for="waste in office.wastes">
+                                                    <i class="fa fa-minus-circle"></i>&nbsp;
+                                                    {{waste.wasteTypeCode}}-{{waste.name}} &gt; {{waste.code}}
+                                                    <input type="hidden" name="waste" value="3">
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr class="FormData">
+                                            <td class="CaptionTD">负责人</td>
+                                            <td class="DataTD width-100">
+                                                <input type="text" name="master" v-model="office.master">
+                                            </td>
+                                        </tr>
+                                        <tr class="FormData">
+                                            <td class="CaptionTD">电话</td>
+                                            <td class="DataTD width-100">
+                                                <input type="text" name="phone" v-model="office.phone">
+                                            </td>
+                                        </tr>
+                                        <tr class="FormData">
+                                            <td class="CaptionTD">邮箱</td>
+                                            <td class="DataTD width-100">
+                                                <input type="text" name="email" v-model="office.email">
+                                            </td>
+                                        </tr>
+                                        <tr class="FormData">
+                                            <td class="CaptionTD">联系地址</td>
+                                            <td class="DataTD width-100">
+                                                <input type="text" name="address" v-model="office.address">
+                                            </td>
+                                        </tr>
+                                        <tr class="FormData">
+                                            <td class="CaptionTD">邮政编码</td>
+                                            <td class="DataTD width-100">
+                                                <input type="text" name="zip_code" v-model="office.zipCode">
+                                            </td>
+                                        </tr>
+                                        <tr class="FormData">
+                                            <td class="CaptionTD">传真</td>
+                                            <td class="DataTD width-100">
+                                                <input type="text" name="fax" v-model="office.fax">
+                                            </td>
+                                        </tr>
+                                        <tr class="FormData">
+                                            <td class="CaptionTD">机构描述</td>
+                                            <td class="DataTD width-100">
+                                                <!-- 加载编辑器的容器 -->
+                                                <div id="container" class="edui-default" style="min-height: 300px; width: 100%;">
+
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                            <div class="width-100 clearfix" tag-save-btn="" style="bottom: -36px; left: 0px; position: absolute;">
+	<span class="btn btn-primary btn-sm bigger-110 width-50  pull-left" id="office-save-btn" @click="doUpdate">
+		<i class="ace-icon fa fa-floppy-o align-top bigger-125"></i> 提交
+	</span>
+                                <span class="btn btn-yellow btn-sm bigger-110 width-50 pull-right" id="office-save-cancel">
+		<i class="ace-icon fa fa-times align-top  bigger-125"></i> 取 消
+	</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div><!-- /.page-content -->
+
+    </div><!-- /.main-content -->
+
+    <a href="javascript:void(0);" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse"  style="z-index:1111">
+        <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+    </a>
+</div><!-- /.main-container -->
+
+<!-- 底部 -->
+<!-- basic scripts -->
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+<script src="static/js/jquery.uploadPreview.js"></script>
+<!-- ueditor所需引入 -->
+<script type="text/javascript" src="static/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="static/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="static/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script>
+
+
+    $(function(){
+        // $("#icon-icon-btn").click(function(){
+        //     layer.open({
+        //         type: 2,
+        //         title: '请单击选择图标',
+        //         maxmin: true,
+        //         content: 'html/area/select.html',
+        //         area: ['1000px' , '550px']
+        //     });
+        // });
+
+
+    });
+
+
+    $(function(){
+        <!-- 实例化编辑器 -->
+        // var ue = UE.getEditor('container');
+        // //描述框自动扩张高度
+        // $('textarea[class*=autosize]').autosize({append: "\n"});
+        //
+        // $("#chosen-select").chosen({width: "100%",search_contains: true});
+        //
+        //
+        // $('#logo_input').click(function(){
+        //     $("#logo_input").uploadPreview({ Img: "logo"});//, Width: 200, Height: 140
+        // });
+        //
+        // $("#wasteType").chosen({width: "100%",search_contains: true});
+        // $("#waste").chosen({width: "100%",search_contains: true});
+
+
+
+        $('#selectedWaste').on('click', '.fa-minus-circle', function() {
+            if(confirm('确定取消该企业与危废对应关系吗？')) {
+                $(this).parent('p').remove();
+            }
+        });
+    });
+
+
+</script>
+
+
+<script src="static/bootstrap/bootstrap.min.js"></script>
+
+<!-- ace scripts -->
+<script src="static/ace/js/ace-elements.min.js"></script>
+<script src="static/ace/js/ace.min.js"></script>
+
+
+
+<!-- 引入其他js -->
+<script src="static/js/history.js"></script>
+<script type="text/javascript" src="static/layer/layer.js"></script>
+<script type="text/javascript" src="static/js/spin.min.js"></script>
+<script type="text/javascript" src="static/ztree/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="static/js/jquery.autosize.min.js"></script>
+<script type="text/javascript" src="static/chosen/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="static/validate/Validform_v5.3.2_min.js"></script>
+<script type="text/javascript" src="static/js/jquery.form.js"></script>
+<script type="text/javascript" src="static/js/bootstrap-contextmenu.js"></script>
+<script type="text/javascript" src="static/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="static/js/public.js"></script>
+<script type="text/javascript" src="static/vue/vue.js"></script>
+<script type="text/javascript" src="static/vue/axios.js"></script>
+<script type="text/javascript" src="static/js/office/update.js"></script>
+
+
+</body>
+</html>

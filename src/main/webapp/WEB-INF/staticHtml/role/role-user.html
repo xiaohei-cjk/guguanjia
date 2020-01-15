@@ -1,0 +1,196 @@
+
+<!-- 头部 -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<base href="/guguanjia/">
+	<meta charset="utf-8"/>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<title>固管家服务平台</title>
+	<meta name="description" content="index"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+
+	<!-- bootstrap & fontawesome -->
+	<link rel="stylesheet" href="static/bootstrap/bootstrap.min.css"/>
+	<link rel="stylesheet" href="static/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="static/chosen/chosen.min.css"/>
+
+	<!-- ace styles -->
+	<link rel="stylesheet" href="static/ace/css/ace.min.css" id="main-ace-style"/>
+	<link rel="stylesheet" href="static/ace/css/ace-skins.min.css"/>
+	<link rel="stylesheet" href="static/ace/css/ace-rtl.min.css"/>
+	<link rel="stylesheet" href="static/ztree/metro.css"/>
+	<link rel="stylesheet" href="static/validate/css/validform.css"/>
+	<link rel="stylesheet" href="static/css/custom.css"/>
+
+	<!--[if !IE]> -->
+	<script src="static/jquery/jquery.js"></script>
+	<!-- <![endif]-->
+	<!-- ace settings handler -->
+	<script src="static/ace/js/ace-extra.min.js"></script>
+</head>
+
+<body class="no-skin" id="body-content">
+
+<!-- 主体 -->
+<div class="main-container" id="main-container">
+
+
+	<div class="main-content">
+
+		<div class="page-content">
+
+			<div class="page-header">
+				<h1> {{name}} 角色分配 </h1>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<div id="fill-main-content" style="height:100%">
+						<h3 class="header smaller red">通过选择部门，然后为列出部门的人员分配角色</h3>
+						<div class="col-xs-6 col-sm-4 pricing-box">
+							<div class="widget-box widget-color-orange">
+								<div class="widget-header">
+									<h5 class="widget-title bigger lighter">所在部门</h5>
+								</div>
+
+								<div class="widget-body">
+									<div class="widget-main">
+										<ul class="ztree" id="treeOffice">
+
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xs-6 col-sm-4 pricing-box">
+							<div class="widget-box widget-color-blue">
+								<div class="widget-header">
+									<h5 class="widget-title bigger lighter">待选人员</h5>
+								</div>
+
+								<div class="widget-body">
+									<div class="widget-main" id="dxuser">
+										<span v-for="u in companyUsers">
+										<label>
+											<!--
+                                            vue中，checkbox、radio、select被选中规则：
+                                            1.value值与  v-model绑定属性值一致，自动选中
+                                            2.v-model直接是一个boolean值   true则选中
+                                            -->
+											<input class="ace ace-checkbox-2" type="checkbox" @click.stop="changeCompanyShow(u.id)" v-model="u.show" name="userIds" >
+											<span class="lbl"> {{u.name}}</span>
+										</label>
+											<br>
+										</span>
+									</div>
+									<div :class="companyShowClass" id="addUserBtn">
+										<a href="javascript:void(0);" class="btn btn-block btn-primary" @click="insertUsers">
+											<i class="ace-icon fa fa-plus bigger-110"></i>
+											<span>添加所选人员</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xs-6 col-sm-4 pricing-box">
+							<div class="widget-box widget-color-green">
+								<div class="widget-header">
+									<h5 class="widget-title bigger lighter">已选人员</h5>
+								</div>
+
+								<div class="widget-body">
+									<form action="role/saveuser" method="post" id="role-user-form">
+										<div class="widget-main" id="yxuser">
+											<div class="checkbox">
+												<span v-for="u in yxUsers">
+												<label>
+													<!--
+                                                    checkbox有两种选中方式：
+                                                    1.vue的v-model的值与  checkbox的value一致
+                                                    2.vue的v-model的值 是true  checkbox没有value  也是被选中
+                                                    -->
+													<input class="ace ace-checkbox-2" @click="changeShow(u.id)"
+														   :id="u.id" type="checkbox" name="userIds" v-model="u.show">
+													<span class="lbl"> {{u.name}}</span>
+												</label>
+													<br>
+												</span>
+											</div>
+										</div>
+									</form>
+									<div :class="showRemoveClass" id="removeUserBtn">
+										<a href="javascript:void(0);" @click.prevent="removeUsers" class="btn btn-block btn-success">
+											<i class="ace-icon fa fa-trash bigger-110"></i>
+											<span>移除人员</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="width-100 clearfix" tag-save-btn="" style="bottom: -36px; left: 0px; position: absolute;">
+	<span class="btn btn-primary btn-sm bigger-110 width-50  pull-left" id="role-user-form-save">
+		<i class="ace-icon fa fa-floppy-o align-top bigger-125"></i> 确认分配
+	</span>
+						<span class="btn btn-yellow btn-sm bigger-110 width-50 pull-right" id="role-user-form-cancel">
+		<i class="ace-icon fa fa-times align-top  bigger-125"></i> 取 消
+	</span>
+					</div>
+
+
+				</div>
+			</div>
+
+
+
+		</div><!-- /.page-content -->
+
+	</div><!-- /.main-content -->
+
+	<a href="javascript:void(0);" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse"  style="z-index:1111">
+		<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+	</a>
+</div><!-- /.main-container -->
+
+<!-- 底部 -->
+<!-- basic scripts -->
+
+<script src="static/bootstrap/bootstrap.min.js"></script>
+<!-- ace scripts -->
+<script src="static/ace/js/ace-elements.min.js"></script>
+<script src="static/ace/js/ace.min.js"></script>
+
+<script type="text/javascript">
+
+    try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+    try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+    try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+    try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+    try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+
+
+</script>
+
+<!-- 引入其他js -->
+<script src="static/js/history.js"></script>
+<script type="text/javascript" src="static/layer/layer.js"></script>
+<script type="text/javascript" src="static/js/spin.min.js"></script>
+<script type="text/javascript" src="static/ztree/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="static/js/jquery.autosize.min.js"></script>
+<script type="text/javascript" src="static/chosen/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="static/validate/Validform_v5.3.2_min.js"></script>
+<script type="text/javascript" src="static/js/jquery.form.js"></script>
+<script type="text/javascript" src="static/js/bootstrap-contextmenu.js"></script>
+<script type="text/javascript" src="static/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="static/js/public.js"></script>
+<script type="text/javascript" src="static/vue/vue.js"></script>
+<script type="text/javascript" src="static/vue/axios.js"></script>
+
+<script type="text/javascript" src="static/js/role/manager_user.js"></script>
+
+</body>
+</html>
